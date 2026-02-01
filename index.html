@@ -659,7 +659,7 @@ footer p {
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Developer</div>
+                <div class="logo">AI Developer</div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -679,9 +679,9 @@ footer p {
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Hi, I'm <span>Software Developer</span></h1>
-                <h2>Python Backend Developer & Prompt Engineer</h2>
-                <p>I am a passionate and detail-oriented Python Backend Developer with Frantend Degine using Ai Tools Prompt. In building scalable, secure, and robust web applications using Django. I specialize in server-side logic, database design using SQLite, API development, and integrating third-party services. efficient backend solutions.Building robust web applications with Python, Django-(Backend framework), and modern JavaScript frameworks.</p>
+                <h1>Hi, I'm <span>AI Developer</span></h1>
+                <h2>Python AI Developer & Prompt Engineer</h2>
+                <p>I am a Python-based AI Developer with a strong interest in Artificial Intelligence(AI). I am actively learning and building projects to improve my skills. Frantend Degine using Ai Tools Prompt. In building scalable, secure, and robust web applications using Django. Building robust web applications with Python, Django-(Backend framework), and modern JavaScript frameworks.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn"> Projects</a>
                     <a href="#contact" class="btn btn-outline">Contact Me</a>
@@ -689,7 +689,7 @@ footer p {
 
                 </div>
                 <div class="social-links">
-                        <a href="https://github.com/dashboard"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/praveens4564" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/praveen-sunagar-617391373/"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
@@ -705,8 +705,7 @@ footer p {
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a passionate Full Stack Developer witin Python web development.FrantEnd degine using AI tools with Prompt. create efficient, scalable, and user-friendly web applications.</p>
-                    <p>My journey began with Python scripting and evolved into full stack development. I love solving complex problems and turning ideas into functional, beautiful applications.</p>
+                    <p>Hi,I am Praveen Sunagar AI Developer passionate about Artificial Intelligence. I am continuously learning and working on projects to strengthen my problem-solving and development skills.</p> <p>My journey began with Python scripting and evolved into full stack development. I love solving complex problems and turning ideas into functional, beautiful applications.</p>
                     <div class="about-details">
                         <div class="detail-item">
                             <i class="fas fa-user"></i>
@@ -782,6 +781,8 @@ footer p {
                         <span>MySQL</span>
                        
                     </div>
+
+                    
                     <div class="skill-item">
                         <span>Git-hub</span>
                         
@@ -872,7 +873,7 @@ footer p {
                         <span>from ilkal, india</span>
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com/dashboard"><i class="fab fa-github"></i></a>
+                          <a href="https://github.com/praveens4564" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/praveen-sunagar-617391373/"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
@@ -904,11 +905,39 @@ footer p {
                 <a href="#">Terms of Service</a>
             </div>
         </div>
-    </foote>
+    </footer>
     <script>
          document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+       const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            subject: formData.get("subject"),
+            message: formData.get("message")
+        };
+
+     
+        fetch("YOUR_GOOGLE_SCRIPT_URL", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            alert("✅ ಧನ್ಯವಾದಗಳು! ನಿಮ್ಮ ಸಂದೇಶ Google Sheet ನಲ್ಲಿ save ಆಗಿದೆ.");
+            form.reset();
+        })
+        .catch(err => {
+            console.error("Error:", err);
+            alert("❌ ಸಂದೇಶ save ಆಗಲಿಲ್ಲ!");
+        });
+    });
     
     hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
